@@ -1,4 +1,4 @@
-# 🛡️ **#PySafe** - Gestor de Contraseñas Seguro 🔐
+# 🛡️ **PySafe** - Gestor de Contraseñas Seguro 🔐
 
 **PySafe** es un gestor de contraseñas desarrollado en Python que te permite gestionar de manera segura todas tus contraseñas sin la necesidad de recordarlas todas. Con **PySafe**, solo tendrás que recordar una contraseña maestra para acceder a todas las demás, garantizando así un acceso rápido y seguro a tus cuentas.
 
