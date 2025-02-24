@@ -49,4 +49,4 @@ Para utilizar **PySafe**, asegúrate de tener los siguientes requisitos:
 
 ## 📄 Licencia
 
-Este proyecto está licenciado bajo la licencia MIT. Para más detalles, consulta el archivo `LICENSE`.
+Este proyecto está licenciado bajo la licencia MIT. Para más detalles, consulta el archivo [LICENCE](LICENCE).
