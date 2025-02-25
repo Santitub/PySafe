@@ -17,14 +17,24 @@ Para utilizar **PySafe**, asegúrate de tener los siguientes requisitos:
 
 ## 🔧 Instalación
 
-1. Navega hasta el directorio del proyecto:
+1. Clona es repositorio con
+```bash
+   git clone https://github.com/Santitub/PySafe.git
+   ```
+
+2. Navega hasta el directorio del proyecto:
    ```bash
    cd PySafe
    ```
 
-2. Instala las dependencias necesarias:
+3. Instala las dependencias necesarias:
    ```bash
    pip install -r requirements.txt
+   ```
+
+4. Ejecuta el código
+   ```python
+   python3 main.py
    ```
 
    O si prefieres, puedes descargar la última versión de la aplicación directamente desde las [**Releases**](https://github.com/Santitub/PySafe/releases).
