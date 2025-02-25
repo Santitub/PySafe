@@ -32,18 +32,13 @@ Para utilizar **PySafe**, asegúrate de tener los siguientes requisitos:
    pip install -r requirements.txt
    ```
 
-4. Ejecuta el código
-   ```python
-   python3 main.py
-   ```
-
    O si prefieres, puedes descargar la última versión de la aplicación directamente desde las [**Releases**](https://github.com/Santitub/PySafe/releases).
 
 ## ⚙️ Uso
 
 1. Ejecuta el programa con el siguiente comando:
-   ```bash
-   python py_safe.py
+   ```python
+   python main.py
    ```
 
 2. Ingresa tu contraseña maestra para acceder a tus contraseñas guardadas.
