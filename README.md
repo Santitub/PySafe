@@ -18,7 +18,7 @@ Para utilizar **PySafe**, asegúrate de tener los siguientes requisitos:
 ## 🔧 Instalación
 
 1. Clona es repositorio con
-```bash
+   ```bash
    git clone https://github.com/Santitub/PySafe.git
    ```
 
