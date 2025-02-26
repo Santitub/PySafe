@@ -89,3 +89,22 @@ class PasswordManager:
         
         with open(self.passwords_file, "w") as f:
             json.dump(encrypted, f)
+    
+    def save_passwords(self, master_password, passwords_data):
+        """Guarda las contraseñas cifradas en el archivo"""
+        try:
+            # Obtener salt del usuario
+            with open(self.users_file, 'r') as f:
+                user_data = json.load(f)
+                salt = bytes.fromhex(user_data["salt"])
+
+            # Cifrar los datos
+            em = EncryptionManager(master_password, salt)
+            encrypted_data = em.encrypt(json.dumps(passwords_data))
+
+            # Escribir al archivo
+            with open(self.passwords_file, 'w') as f:
+                json.dump(encrypted_data, f)
+
+        except Exception as e:
+            raise RuntimeError(f"Error al guardar contraseñas: {str(e)}")
