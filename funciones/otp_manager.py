@@ -6,7 +6,7 @@ class OTPManager:
     def __init__(self):
         self.otps = {}
         self.email = ""
-        self.app_password = ""
+        self.app_password = ""  # Contraseña de aplicación
         self.expiration = timedelta(minutes=5)
 
     def generate_otp(self):
