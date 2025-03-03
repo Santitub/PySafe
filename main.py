@@ -131,6 +131,7 @@ class LoginWindow(QMainWindow):
 
         title = QLabel('PySafe Password Manager')
         title.setStyleSheet("font-size: 24px; font-weight: bold; color: #FFFFFF;")
+        title.setAlignment(Qt.AlignCenter)
 
         # Contenido
         self.content_widget = QWidget()
@@ -270,6 +271,16 @@ class MainApp(QMainWindow):
         self.table.verticalHeader().setVisible(False)
         self.table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        # Configurar anchos de columnas
+        header = self.table.horizontalHeader()
+        header.setSectionResizeMode(0, QHeaderView.Interactive)
+        header.setSectionResizeMode(1, QHeaderView.Stretch)
+        header.setSectionResizeMode(2, QHeaderView.Stretch)
+        self.table.setColumnWidth(0, 180)  # Ancho fijo para servicio
+        
+        self.table.verticalHeader().setVisible(False)
+        self.table.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
         # Barra de búsqueda
         search_widget = QWidget()
@@ -395,8 +406,31 @@ class PasswordDialog(QDialog):
         # Campos de entrada
         self.service_input = QLineEdit()
         self.username_input = QLineEdit()
+        
+        # Widget para contraseña con botón ocular
+        password_widget = QWidget()
+        password_layout = QHBoxLayout(password_widget)
+        password_layout.setContentsMargins(0, 0, 0, 0)
+        
         self.password_input = QLineEdit()
         self.password_input.setEchoMode(QLineEdit.Password)
+        
+        self.btn_show = QPushButton('👁️')
+        self.btn_show.setFixedSize(28, 28)
+        self.btn_show.setStyleSheet("""
+            QPushButton {
+                border: none;
+                padding: 2px;
+                background-color: transparent;
+            }
+            QPushButton:hover {
+                background-color: #404040;
+            }
+        """)
+        self.btn_show.clicked.connect(self.toggle_password_visibility)
+        
+        password_layout.addWidget(self.password_input)
+        password_layout.addWidget(self.btn_show)
         
         # Botones de acción
         self.btn_generate = QPushButton('Generar contraseña segura')
@@ -409,9 +443,17 @@ class PasswordDialog(QDialog):
         # Diseño
         layout.addRow('Servicio:', self.service_input)
         layout.addRow('Usuario (opcional):', self.username_input)
-        layout.addRow('Contraseña:', self.password_input)
+        layout.addRow('Contraseña:', password_widget)
         layout.addRow(self.btn_generate)
         layout.addRow(button_box)
+
+    def toggle_password_visibility(self):
+        if self.password_input.echoMode() == QLineEdit.Password:
+            self.password_input.setEchoMode(QLineEdit.Normal)
+            self.btn_show.setText('👁️')
+        else:
+            self.password_input.setEchoMode(QLineEdit.Password)
+            self.btn_show.setText('👁️')
 
     def generate_password(self):
         characters = string.ascii_letters + string.digits + "!@#$%^&*()_-+="
